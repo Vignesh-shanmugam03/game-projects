@@ -26,8 +26,8 @@ public class minesweeper {
         DisplayField();
         int choice = 10;
         Scanner sc = new Scanner(System.in);
-
-        while (flag && count < 54) {
+     // Since there are 15 bombs, total positions 64 - 15 = 49
+        while (flag && count < 49) {
             isFlag = false;
             if (count != 0) {
                 System.out.println("Enter 1 to set flag\nEnter 2 to open field");
