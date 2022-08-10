@@ -1,7 +1,7 @@
 
 /* Author: Vignesh S
    Date: 10-08-2022
-   Program for Minesweeper Game */
+   Program for Tic-Tac-Toe Game */
 
 import java.util.Scanner;
 
