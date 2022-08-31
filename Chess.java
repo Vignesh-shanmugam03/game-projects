@@ -1,3 +1,7 @@
+/* Author: Vignesh S
+   Date: 31-08-2022
+   Program for Chess Game */
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -139,7 +143,8 @@ public class Game {
         int j = dest[1] - '1';
         FindCoinType(i, j);
     }
-
+    
+    // To find the position of the coin on the Board
     private static void FindPosition(String newCoin) {
         for (int k = 0; k < 8; k++) {
             for (int m = 0; m < 8; m++) {
@@ -152,6 +157,7 @@ public class Game {
         }
     }
 
+    // Finding the type of coin and passing the destination location
     private static void FindCoinType(int i, int j) {
         switch (coin.charAt(1)) {
             case 'P':
@@ -184,6 +190,7 @@ public class Game {
         }
     }
 
+    // Possible moves of all coins
     public static void Kmoves(int i, int j) {
         int[][] moves = { { 0, 1 }, { 0, -1 }, { 1, 0 }, { -1, 0 }, { 1, 1 }, { 1, -1
         }, { -1, -1 }, { -1, 1 } };
@@ -364,7 +371,8 @@ public class Game {
             }
         }
     }
-
+    
+    // Checking if king is in check to avoid illegal move
     private static void IfKingInCheck(String tempDes) {
         isCheck = true;
 
@@ -400,6 +408,7 @@ public class Game {
         coin = tempCoin;
     }
 
+    // Undo the move if king is in check
     private static void Undo(int tempRow, int tempCol, String tempCoin, String tempDes) {
         row = tempRow;
         col = tempCol;
@@ -421,6 +430,7 @@ public class Game {
         checkResult();
     }
 
+    // Undo the move if king is in check and castling is done
     private static void undoCastling(String newCoin) {
         if (newCoin.charAt(0) == 'W') {
             Board[0][1] = "_";
@@ -437,6 +447,7 @@ public class Game {
         }
     }
 
+    // When pawn reached last row of the Board
     private static void getPower(int i, int j) {
         String oldCoin = Board[i][j];
         String newCoin = "";
@@ -452,6 +463,7 @@ public class Game {
         Board[i][j] = newCoin;
     }
 
+    // Replacing a new coin with the pawn
     private static String addNewCoin(char color) {
         Scanner nc = new Scanner(System.in);
         System.out.print("Select type of coin:");
@@ -494,6 +506,7 @@ public class Game {
         IfKingInCheck(coin);
     }
 
+    // Checking if the game ended
     private static boolean isCheckmate(char color) {
         checkForMate = true;
         if (color == 'W') {
@@ -584,6 +597,7 @@ public class Game {
         }
     }
 
+    // Displaying result
     private static void checkResult() {
         if (wchance < 1) {
             System.out.println("Black won the game");
